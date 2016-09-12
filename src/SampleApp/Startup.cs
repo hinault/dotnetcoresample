@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SampleApp.Models;
+using Microsoft.EntityFrameworkCore;
+using SampleApp.Repository;
 
 namespace SampleApp
 {
@@ -29,6 +32,12 @@ namespace SampleApp
         {
             // Add framework services.
             services.AddMvc();
+
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=StudentDB;Trusted_Connection=True;";
+            services.AddDbContext<SampleAppContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<IStudentsRepository, StudentsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
