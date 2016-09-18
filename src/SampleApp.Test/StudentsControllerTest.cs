@@ -50,7 +50,7 @@ namespace SampleApp.Test
             //assert
             Assert.IsNotNull(viewResult);
             var student = viewResult.ViewData.Model as Student;
-            Assert.AreEqual("Garden", student.FristName);
+            Assert.AreEqual("Garden", student.FirstName);
 
         }
 
@@ -99,7 +99,7 @@ namespace SampleApp.Test
             var controller = new StudentsController(studentsRepositoryMock.Object);
 
             // Act
-            var result = await controller.Create(new Student { Id=4, Email="a.Damien@gmail.com", FristName="Damien", LastName="Alain" }) as RedirectToActionResult;
+            var result = await controller.Create(new Student { Id=4, Email="a.Damien@gmail.com", FirstName="Damien", LastName="Alain" }) as RedirectToActionResult;
 
             //assert
             Assert.IsNotNull(result);
@@ -130,9 +130,9 @@ namespace SampleApp.Test
         {
 
             IEnumerable<Student> students = new List<Student>() {
-            new Student {Id = 1, Email = "j.papavoisi@gmail.com", FristName="Papavoisi", LastName="Jean" },
-            new Student { Id = 2, Email = "p.garden@gmail.com", FristName = "Garden", LastName = "Pierre" },
-            new Student { Id = 3, Email = "r.derosi@gmail.com", FristName = "Derosi", LastName = "Ronald" }
+            new Student {Id = 1, Email = "j.papavoisi@gmail.com", FirstName="Papavoisi", LastName="Jean" },
+            new Student { Id = 2, Email = "p.garden@gmail.com", FirstName = "Garden", LastName = "Pierre" },
+            new Student { Id = 3, Email = "r.derosi@gmail.com", FirstName = "Derosi", LastName = "Ronald" }
             };
             return students;
         }

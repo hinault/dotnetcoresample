@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SampleApp.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using FluentAssertions;
 
 namespace SampleApp.Test
 {
@@ -41,6 +42,8 @@ namespace SampleApp.Test
 
             // Assert
             Assert.AreEqual(viewData, viewResult.ViewData["Message"]);
+
+            viewResult.Should().vi;
         }
 
 

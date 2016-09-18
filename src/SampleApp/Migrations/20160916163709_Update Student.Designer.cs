@@ -8,9 +8,10 @@ using SampleApp.Models;
 namespace SampleApp.Migrations
 {
     [DbContext(typeof(SampleAppContext))]
-    partial class SampleAppContextModelSnapshot : ModelSnapshot
+    [Migration("20160916163709_Update Student")]
+    partial class UpdateStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
