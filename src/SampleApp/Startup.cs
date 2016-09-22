@@ -31,12 +31,18 @@ namespace SampleApp
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+
+            /* var connection = @"Server=(localdb)\mssqllocaldb;Database=StudentDB;Trusted_Connection=True;";
+             services.AddDbContext<SampleAppContext>(options => options.UseSqlServer(connection));
+             */
+
+            services.AddEntityFrameworkSqlite()
+                .AddDbContext<SampleAppContext>(options => options.UseSqlite(Configuration["Data:DefaultConnection:SqliteConnectionString"]));
+
             services.AddMvc();
 
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=StudentDB;Trusted_Connection=True;";
-            services.AddDbContext<SampleAppContext>(options => options.UseSqlServer(connection));
-
+            
             services.AddScoped<IStudentsRepository, StudentsRepository>();
         }
 

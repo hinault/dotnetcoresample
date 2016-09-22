@@ -8,14 +8,13 @@ using SampleApp.Models;
 namespace SampleApp.Migrations
 {
     [DbContext(typeof(SampleAppContext))]
-    [Migration("20160916163709_Update Student")]
-    partial class UpdateStudent
+    [Migration("20160922203659_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
 
             modelBuilder.Entity("SampleApp.Models.Student", b =>
                 {
@@ -36,7 +35,7 @@ namespace SampleApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Student");
+                    b.ToTable("Students");
                 });
         }
     }
