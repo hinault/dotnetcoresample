@@ -43,7 +43,7 @@ namespace SampleApp.Test
             // Assert
             Assert.AreEqual(viewData, viewResult.ViewData["Message"]);
 
-            viewResult.Should().vi;
+            
         }
 
 
