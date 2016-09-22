@@ -23,6 +23,8 @@ namespace SampleApp
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -62,6 +64,10 @@ namespace SampleApp
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            if (!app.ApplicationServices.GetService<SampleAppContext>().Database.EnsureCreated()) {
+                app.ApplicationServices.GetService<SampleAppContext>().Database.Migrate();
+            }
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -71,5 +77,7 @@ namespace SampleApp
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+
     }
 }
