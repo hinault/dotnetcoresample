@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SampleApp.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using FluentAssertions;
 
 namespace SampleApp.Test
 {
